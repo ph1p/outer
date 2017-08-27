@@ -1,6 +1,6 @@
 {
     "name": "outer",
-    "version": "0.0.7",
+    "version": "0.0.9",
     "description": "This is a small package to connect your node application to your slack or rocket.chat server and send your logs to specific channels or users.",
     "main": "index.js",
     "author": "Philip Stapelfeldt <phil@capshake.com>",

@@ -2,6 +2,10 @@
 
 This is a small package to connect your node application to your slack or rocket.chat server and send your logs to specific channels or users.
 
+#### rocket.chat
+![rocketchat](https://user-images.githubusercontent.com/15351728/29752941-abaf6c3e-8b67-11e7-87b9-31bea04ccfd6.png)
+#### slack
+![slack](https://user-images.githubusercontent.com/15351728/29752943-ad2c4c6c-8b67-11e7-99c2-c39a233ff5e7.png)
 
 ### Options
 
