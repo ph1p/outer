@@ -1,5 +1,4 @@
 const axios = require('axios');
-const querystring = require('querystring');
 
 const Outer = (_options) => {
     return {
@@ -90,13 +89,7 @@ const Outer = (_options) => {
                         });
                 } else if (this.options.adapter === 'slack') {
                     // send new text
-                    axios.post(this.client().host + this.client().apiPostMessage, querystring.stringify({
-                        token: this.options.token,
-                        username: this.options.alias,
-                        channel: this.options.channel,
-                        icon_emoji: this.options.emoji,
-                        text: _message
-                    })).catch((error) => {
+                    axios.post(this.client().host + this.client().apiPostMessage, `token=${this.options.token}&username=${this.options.alias}&channel=${this.options.channel}&icon_emoji=${this.options.emoji}&text=${_message}`).catch((error) => {
                         console.log(error.response.data);
                     });
                 }
