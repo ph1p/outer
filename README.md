@@ -9,43 +9,52 @@ This is a small package to connect your node application to your slack or rocket
 
 ### Options
 
-| Name  |  Description | Platform |
-|---|---|---|
-| adapter  | rocket.chat _(default)_ or slack | both |
-| channel  | #channel or @username | both |
-| alias  | alias for username _(optional)_ | both |
-| emoji  | avatar emoji _(optional)_ | both |
-| token  | user token _(https://api.slack.com/custom-integrations/legacy-tokens)_ | slack |
-| username  | username of rocket.chat user | rocket.chat |
-| password  | password of rocket.chat user | rocket.chat |
-| url  | api url only for rocket.chat  | rocket.chat |
+| Name  |  Description |
+|---|---|
+| adapter  | rocket.chat or slack _(default)_ |
+| channel  | #channel or @username |
+| alias  | alias for username _(optional)_ |
+| emoji  | avatar emoji _(optional)_ |
+
+#### rocket.chat specific
+
+| Name  |  Description |
+|---|---|
+| username  | username |
+| password  | password |
+| url  | URL from your rocket.chat server |
+
+#### slack  specific
+
+| Name  |  Description |
+|---|---|
+| token  | user token _(https://api.slack.com/custom-integrations/legacy-tokens)_ |
 
 ---
 
 ### Example
+```
+const outer = require('outer');
 
-    // CONFIGURE SLACK LOGGER
-    const outer = require('outer')({
-        adapter: 'slack',
-        // https://api.slack.com/custom-integrations/legacy-tokens
-        token: 'xoxp-65673-43244-23143249297-6392f67dfdsfdsf5613c4',
-        channel: '#random',
-        alias: 'My custom username',
-        emoji: ':smirk:'
-    });
-   
-    outer.log('Message from your *app*. Hi Slack!');
-    
----
+// CONFIGURE ROCKET.CHAT LOGGER
+const rocketChat = new outer({
+    adapter: 'rocket.chat',
+    url: 'https://chat.appcom.eu',
+    channel: '@username',
+    emoji: ':smirk:',
+    username: 'username',
+    password: 'password'
+});
 
-    // CONFIGURE ROCKET.CHAT LOGGER
-    const outer = require('outer')({
-        url: 'https://chat.yourserver.com',
-        channel: '@username',
-        alias: 'My custom username',
-        emoji: ':smirk:',
-        username: 'user',
-        password: 'pass'
-    });
+// CONFIGURE SLACK LOGGER
+const slack = new outer({
+    // https://api.slack.com/custom-integrations/legacy-tokens
+    token: 'xoxp-0000000000-00000000-000000000-00000000000',
+    channel: '#random',
+    alias: 'My custom username',
+    emoji: ':smirk:'
+});
 
-    outer.log('Message from your *app*. Hi Rocket.Chat!');
+rocketChat.log('Message from your *app*. Hi Rocket.Chat!');
+slack.log('Message from your *app*. Hi Slack!');
+```
