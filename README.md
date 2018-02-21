@@ -1,6 +1,8 @@
-### What is this?
+## outer
 
-This is a small package to connect your node application to your slack or rocket.chat server and send your logs to specific channels or users.
+[![npm](https://img.shields.io/npm/v/outer.svg)](https://www.npmjs.com/package/outer)
+
+This package connects your node application to your slack or rocket.chat server and send your logs to specific channels or users.
 
 #### rocket.chat
 ![rocketchat](https://user-images.githubusercontent.com/15351728/29752941-abaf6c3e-8b67-11e7-87b9-31bea04ccfd6.png)
@@ -39,7 +41,7 @@ const outer = require('outer');
 // CONFIGURE ROCKET.CHAT LOGGER
 const rocketChat = new outer({
     adapter: 'rocket.chat',
-    url: 'https://chat.appcom.eu',
+    url: 'https://chat.server.com',
     channel: '@username',
     emoji: ':smirk:',
     username: 'username',
