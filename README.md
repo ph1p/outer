@@ -35,7 +35,7 @@ This package connects your node application to your slack or rocket.chat server 
 ---
 
 ### Example
-```
+```javascript
 const outer = require('outer');
 
 // CONFIGURE ROCKET.CHAT LOGGER
